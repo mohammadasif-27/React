@@ -69,7 +69,7 @@ export default function Navbar(props) {
                 className="btn btn-outline-success"
                 type="submit"
               >
-                Search
+                Search Box
               </button>
             </form>
 
