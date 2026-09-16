@@ -7,6 +7,8 @@ import Alert from './components/Alert';
 
 function App() {
 
+  const [page, setPage] = useState('home');
+
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -22,22 +24,27 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <Navbar />
-      </div>
+      {/* Navbar */}
+      <Navbar setPage={setPage} />
 
+      {/* Alert */}
       <Alert alert={alert} />
 
-      <div className="container">
-        <TextForm showAlert={showAlert} />
-        <About/>
-      </div>
+      {/* Pages */}
+      {page === 'home' && (
+        <div className="container">
+          <TextForm showAlert={showAlert} />
+        </div>
+      )}
 
-      <div className="container">
-        <About />
-      </div>
+      {page === 'about' && (
+        <div className="container">
+          <About />
+        </div>
+      )}
     </>
   );
 }
 
 export default App;
+
